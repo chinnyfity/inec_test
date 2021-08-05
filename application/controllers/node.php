@@ -144,14 +144,13 @@ class Node extends CI_Controller {
                             $lga_id = $row['lga_id'];
                             
                             $ward_details = $this->sql_models->fetchTbls($ward_id);
-                            $no_of_users = $this->sql_models->countUsers($lga_id);
+                            //$no_of_users = $this->sql_models->countUsers($lga_id);
                             
                             $w_name = $ward_details['ward_name'];
                             $w_description = $ward_details['ward_description'];
                             $w_user = $ward_details['entered_by_user'];
 
                             $ward_dts = "
-                            <b>Voters:</b> $no_of_users<br>
                             <b>Ward Name:</b> $w_name<br>
                             <b>Ward Description:</b> $w_description<br>
                             <b>Ward Admin:</b> $w_user<br>
@@ -206,7 +205,7 @@ class Node extends CI_Controller {
                 $lga_name = $this->sql_models->fetchLGA($lga_id);
                 $count_lga = $this->sql_models->countLGA($lga_id);
                 $ward_details = $this->sql_models->fetchTbls($ward_id);
-                $no_of_users = $this->sql_models->countUsers($lga_id);
+                //$no_of_users = $this->sql_models->countUsers($lga_id);
                 
 
                 $w_name = $ward_details['ward_name'];
@@ -245,56 +244,6 @@ class Node extends CI_Controller {
         );
         echo json_encode($output);
     }
-
-
-
-    /* function filter_sort(){
-        $txtsort = $this->input->post('txtsort');
-        $url_task="lockers";
-
-        $fetch_data = $this->sql_models->make_datatables($url_task, $txtsort);
-        $data = array();
-        $conts = 1;
-        foreach($fetch_data as $row){   
-            $sub_array = array();
-            $ids = $row->id1;
-            
-            if($url_task=="lockers"){
-                $titles = $row->titles;
-                $descrip = "<font style='line-height:18px'>$row->descrip</font>";
-                $descrip2 = $row->descrip2;
-                $qty = $row->qty;
-                $city1 = $row->city1;
-                $state1 = $row->state1;
-                $addrs = ucwords(strtolower($row->addrs));
-                $locs = "<p style='font-weight:normal!important;font-size:13px;line-height:18px!important;color:#c46e17;margin-top:4px;opacity:0.9'>$addrs</p>";
-
-                if($qty >=1) $qty="$qty Available"; else $qty="None Available";
-            }
-
-
-            if($url_task=="lockers"){
-                $sub_array[] = $conts;
-                $sub_array[] = ucwords($titles);
-                $sub_array[] = $descrip.$locs;
-                $sub_array[] = $descrip2;
-                $sub_array[] = $qty;
-                $sub_array[] = "<font class='btn_rent'>Rent Now</font>";
-            }
-
-            $data[] = $sub_array;
-            $conts++;
-        }
-
-        $output = array(
-            "draw"              =>  intval($_POST["draw"]),
-            "recordsTotal"      =>  $this->sql_models->get_all_data($url_task, $txtsort),
-            "recordsFiltered"   =>  $this->sql_models->get_filtered_data($url_task, $txtsort),
-            "data"              =>  $data
-        );
-        echo json_encode($output);
-    } */
-
 
 
 }

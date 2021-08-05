@@ -92,12 +92,6 @@ $(document).ready(function(){
             $('#country_list_id').hide();
             $('#country_list_id').html('');
           }
-
-          /* var count=0;
-          $('#tbl_name tr').each(function(){
-              count++;
-          }); */
-
           setTimeout(function(){
             var count = $('#tbl_search').DataTable().rows().eq(0).length;
             $('.count_items div').html(count + ' Open Lockers Available');

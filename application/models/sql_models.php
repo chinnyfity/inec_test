@@ -7,17 +7,6 @@ class Sql_models extends CI_Model{
     }
 
 
-    /* function fetchARecord2($tbl, $id){
-        $this->db->select($tbl.'.*')->from($tbl);
-        $this->db->where('md5('.$tbl.'.id)', $id);
-        $query = $this->db->get();
-        if($query->num_rows() > 0)
-            return $query->row_array();
-        else
-            return false;
-    } */
-
-
     function countLGA($lga_id){
         $this->db->select('lga_id')->from('polling_unit');
         $this->db->where('lga_id', $lga_id);
