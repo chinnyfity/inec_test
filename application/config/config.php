@@ -16,7 +16,7 @@
 */
 
 
-$servers = ($_SERVER['HTTP_HOST'] == "localhost")? "http://localhost/hub_locker1/":"https://hublocker.embexdigital.com.ng/";
+$servers = ($_SERVER['HTTP_HOST'] == "localhost")? "http://localhost/hub_locker1/":"https://lightznlenz.com.ng/inec/";
 $config['base_url']	= $servers; 
 
 

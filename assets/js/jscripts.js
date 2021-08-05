@@ -9,7 +9,7 @@ $(document).ready(function(){
     var count = $('#tbl_search').DataTable().rows().eq(0).length;
     $('.count_items div').html(count + ' Polling Units Available');
    
-  },1000);
+  },2000);
 
 });
 
